@@ -1,0 +1,7 @@
+{
+  "name": "ReqresUsers",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
