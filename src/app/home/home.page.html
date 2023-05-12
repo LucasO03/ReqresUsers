@@ -9,11 +9,23 @@
 <ion-content [fullscreen]="true">
   <ion-item *ngFor="let user of listaUsers">
     <ion-item>
-      <ion-label>
+      <ion-avatar class="ion-margin-end">
+        <img alt="Avatar" src="{{user.avatar}}"/>
+      </ion-avatar>
+      <ion-label class="padding-left">
         <h1>{{user.email}}</h1>
         <p>{{user.first_name}}</p>
         <p>{{user.last_name}}</p>
       </ion-label>
+
+      <ion-button color="warning" (click)="alterarUsuario(user.id!)">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+  
+      <ion-button color="danger" (click)="excluirUsuario(user.id!)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+      
     </ion-item>
   </ion-item>
 </ion-content>

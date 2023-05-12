@@ -31,4 +31,11 @@ export class HomePage implements OnInit {
       this.listaUsers = dados;
     });
   }
+
+  alterarUsuario(id: number){
+    this.router.navigateByUrl(`/api/users/${id}`)
+  }
+
+  excluirUsuario(id: number){
+  }
 }
