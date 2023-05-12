@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
+import { Response } from '../models/Response.model';
 import { User } from '../models/User.model';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { User } from '../models/User.model';
 })
 export class UsersService {
 
-  url = 'https://reqres.in/api/unknown'
+  url = 'https://reqres.in/api/users'
 
   constructor(private http: HttpClient, private alertController: AlertController) { }
 
@@ -18,8 +19,8 @@ export class UsersService {
   }
 
   getAll () : Observable<User[]> {
-    return this.http.get<User[]>(this.url).pipe(
-      map(retorno => retorno),
+    return this.http.get<Response>(this.url).pipe(
+      map(retorno => retorno.data),
       catchError(erro => this.exibirErro(erro))
     );
   }
